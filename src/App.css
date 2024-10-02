@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home-container {
+  background: linear-gradient(
+    to right,
+    rgb(45 212 191),
+    rgb(94 234 212),
+    rgb(153 246 228),
+    rgb(204 251 241)
+  );
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-left: 50px;
+}
+
+.content {
+  text-align: left;
+
+  max-width: 50vw;
+}
+
+.headingcontent {
+  color: white;
+}
+.paragraphcontent {
+  color: rgb(4, 84, 141);
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 100px;
+}
+
+.buttons-container {
+  margin-top: 20px;
+}
+
+button {
+  background-color: white;
+  color: rgb(65, 166, 228);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(65, 166, 228, 0.8);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.image-container img {
+  width: 600px; /* Adjust the width of the image */
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 1024px) {
+  .home-container {
+    flex-direction: column; /* Stack content and image vertically on tablets */
+    justify-content: center;
+    text-align: center; /* Center content for smaller screens */
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .content {
+    max-width: 100%; /* Allow content to use full width */
+    padding: 20px;
+  }
+
+  .image-container img {
+    width: 300px; /* Reduce image size on tablet screens */
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    height: auto; /* Allow container to expand on smaller screens */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Adjust heading size for smaller screens */
+  }
+
+  p {
+    font-size: 1rem; /* Adjust paragraph font size */
+  }
+
+  .image-container img {
+    width: 300px; /* Smaller image for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem; /* Further reduce heading size on small devices */
+  }
+
+  p {
+    font-size: 0.9rem; /* Smaller font size for paragraph */
+  }
+
+  .image-container img {
+    width: 200px; /* Smaller image for very small screens */
+  }
+
+  .buttons-container {
+    flex-direction: column; /* Stack buttons vertically on mobile */
+  }
+
+  button {
+    width: 80%; /* Make buttons take full width on mobile */
+    margin: 10px 0; /* Space between buttons */
   }
 }
