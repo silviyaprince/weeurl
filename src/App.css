@@ -122,3 +122,8 @@ button:hover {
     margin: 10px 0; /* Space between buttons */
   }
 }
+
+.custom-box {
+  width: 400px;
+  height: 500px;
+}
