@@ -8,6 +8,7 @@ import {Login} from './components/Login';
 import {Urlshortener} from './components/Urlshortener';
 import {Urldata} from './components/Urldata';
 import {Pagenotfound} from './components/Pagenotfound';
+import { Signupregistration } from './components/Signupregistration';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
       <Route path="/login" element={<Login/>}/>
       <Route path="/urlshortener" element={<Urlshortener/>}/>
       <Route path="/urldata" element={<Urldata/>}/>
+      <Route path="/signupregistration" element={<Signupregistration/>}/>
+
       <Route path="*" element={<Pagenotfound/>}/>
     </Routes>
    

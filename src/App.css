@@ -1,11 +1,5 @@
 .home-container {
-  background: linear-gradient(
-    to right,
-    rgb(45 212 191),
-    rgb(94 234 212),
-    rgb(153 246 228),
-    rgb(204 251 241)
-  );
+  background: white;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -20,29 +14,37 @@
   max-width: 50vw;
 }
 
-.headingcontent {
-  color: white;
+#headingcontent {
+  color:rgb(244, 83, 8);
+  font-family: 'Pacifico', cursive;
+  font-size: xx-large;
+  font-weight: bolder;
+  
+    
+  
+  
 }
 .paragraphcontent {
   color: rgb(4, 84, 141);
-  font-size: 30px;
+  font-size: xx-large;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 100px;
-}
+
 
 .buttons-container {
   margin-top: 20px;
+  font-size: larger;
+  gap: 40px;
+ 
 }
 
 button {
   background-color: white;
-  color: rgb(65, 166, 228);
+  font-weight: 500;
+  color: rgb(244, 83, 8);
   border: none;
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 2rem;
   margin: 10px;
   cursor: pointer;
   border-radius: 5px;
@@ -50,7 +52,7 @@ button {
 }
 
 button:hover {
-  background-color: rgba(65, 166, 228, 0.8);
+  background-color: rgba(0, 1, 1, 0.258);
   color: white;
 }
 
@@ -58,7 +60,7 @@ button:hover {
   width: 600px; /* Adjust the width of the image */
   height: auto;
   object-fit: cover;
-  border-radius: 50%;
+
 }
 
 @media (max-width: 1024px) {
@@ -68,11 +70,21 @@ button:hover {
     text-align: center; /* Center content for smaller screens */
     padding: 20px;
   }
-
+  #headingcontent {
+    color:rgb(244, 83, 8);
+    font-family: 'Pacifico', cursive;
+    font-size: xx-large;
+    font-weight: bolder;
+    
+      
+    
+    
+  }
   .content {
     max-width: 100%; /* Allow content to use full width */
     padding: 20px;
   }
+  
 
   .image-container img {
     width: 300px; /* Reduce image size on tablet screens */
@@ -87,8 +99,15 @@ button:hover {
     padding-right: 20px;
   }
 
-  h1 {
-    font-size: 2.5rem; /* Adjust heading size for smaller screens */
+  #headingcontent {
+    color:rgb(244, 83, 8);
+    font-family: 'Pacifico', cursive;
+    font-size: xx-large;
+    font-weight: bolder;
+    
+     
+    
+    
   }
 
   p {
@@ -101,8 +120,15 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 2rem; /* Further reduce heading size on small devices */
+  #headingcontent {
+    color:rgb(244, 83, 8);
+    font-family: 'Pacifico', cursive;
+    font-size: xx-large;
+    font-weight: bolder;
+    
+     
+    
+    
   }
 
   p {
@@ -126,4 +152,21 @@ button:hover {
 .custom-box {
   width: 400px;
   height: 500px;
+}
+
+#registercontainer{
+  position: relative; /* or 'absolute' if needed */
+  top: 70px;
+}
+.urlcontainer{
+  width: 100vw;
+  height: 100vh;
+} 
+#urlheadingcontent{
+  padding-left: 100px;
+  padding-top: 100px;
+  
+  font-family: 'Pacifico', cursive;
+  font-size: xx-large;
+  font-weight: bolder;
 }

@@ -1,7 +1,9 @@
 import React from "react";
+import { Link ,useNavigate} from "react-router-dom";
 import { weeurllogo } from "../image";
 
 export function Login() {
+  const navigate=useNavigate()
   return (
     <div
       className="container d-flex justify-content-center align-items-center"
@@ -35,12 +37,18 @@ export function Login() {
                 placeholder="Password"
               />
               <label htmlFor="floatingPassword">Password</label>
+              
             </div>
-            <div className="text-center mt-4">
-              <button type="button" className="btn btn-primary ms-2">
+            <Link href="/forgot-password" className="forgot-password-link float-end">
+    Forgot password?
+  </Link>
+            <div className="text-center  mt-5   ">
+              <button type="button" className="btn btn-primary me-2">
                 SUBMIT
               </button>
+              <p className="mt-4 fs-5">Not a member?<h6 className="d-inline text-primary" onClick={()=>navigate("/signupregistration")}>REGISTER NOW</h6> </p>
             </div>
+            
           </div>
         </div>
       </div>
