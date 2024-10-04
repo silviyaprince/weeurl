@@ -11,7 +11,7 @@ export  function Urlshortener() {
    <div className='urlcontainer ' >
     <h2 className='fs-1  text-white mb-5' style={{backgroundColor:"#57868e"}} id="urlheadingcontent"  >Wee Url</h2>
     <h3 className='text-center fs-1' style={{color:"#aeebf7"}}>Create links that perform with our powerful URL Shortener</h3>
-    <p className='text-center fs-3' style={{color:"#aeebf7"}}>Spark instant connections with your audience using trimmed, trustworthy, and trackable links within the WeeUrl Connections Platform.</p>
+    <p className='text-center fs-2' style={{color:"#aeebf7"}}>Spark instant connections with your audience using trimmed, trustworthy, and trackable links within the WeeUrl Connections Platform.</p>
      <br/>
      <br/>
      <form className="d-flex p-5" role="search">

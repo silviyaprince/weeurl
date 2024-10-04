@@ -14,7 +14,7 @@ export  function Home() {
       <div className="buttons-container">
         <button onClick={()=>navigate("/login")}>LOGIN</button>
         <button onClick={()=>navigate("/urlshortener")}>SHORTEN URL</button>
-        <button>URL'S CREATED</button>
+        <button onClick={()=>navigate("/urldata")}>URL'S CREATED</button>
         <br/>
         <br/>
         <div className='d-flex gap-5 mt-5'>
