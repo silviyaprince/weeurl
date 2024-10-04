@@ -4,8 +4,10 @@
   height: 100vh;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  
   padding-left: 50px;
+  padding-top: 100px;
+  
 }
 
 .content {
@@ -19,6 +21,9 @@
   font-family: 'Pacifico', cursive;
   font-size: xx-large;
   font-weight: bolder;
+ 
+  
+  
   
     
   
@@ -169,4 +174,10 @@ button:hover {
   font-family: 'Pacifico', cursive;
   font-size: xx-large;
   font-weight: bolder;
+}
+
+@media (min-width:650px){
+ #urlshortenerimage{
+ flex:1;
+  }
 }

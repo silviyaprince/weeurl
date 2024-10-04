@@ -7,7 +7,8 @@ export  function Urlshortener() {
     minHeight:"100vh",
   }
   return (
-   <div className='urlcontainer ' style={styles}>
+    <div style={styles}>
+   <div className='urlcontainer ' >
     <h2 className='fs-1  text-white mb-5' style={{backgroundColor:"#57868e"}} id="urlheadingcontent"  >Wee Url</h2>
     <h3 className='text-center fs-1' style={{color:"#aeebf7"}}>Create links that perform with our powerful URL Shortener</h3>
     <p className='text-center fs-3' style={{color:"#aeebf7"}}>Spark instant connections with your audience using trimmed, trustworthy, and trackable links within the WeeUrl Connections Platform.</p>
@@ -19,32 +20,22 @@ export  function Urlshortener() {
       </form>
       <br/>
       <br/>
-     <div className='d-flex justify-content-around'>
-      <div>
-      <h4 className='' style={{color:"#f3db81"}}>TAILORED LINKS</h4>
-      <p className=' lh-base paragraphcontent'>Shorten long, cumbersome URLs into sleek, custom links that are easy to share across platforms and devices.Use our URL shortener to create custom links that simplify your online sharing and enhance user experience.Easily manage and edit your links, all within one platform.</p>
+     <div className='d-flex container flex-wrap gap-2 mb-5' id="urlshortenercontent" style={{backgroundColor:"#57868e",minHeight:"40vh",minWidth:"100vW"}}>
+      <div style={{ flex:'1 ' }} >
+      <h4 className='' style={{color:"#ffffff",marginBottom:"30px"}}>TAILORED LINKS</h4>
+      <h2 style={{ color:"#ffff4d" ,marginBottom:"40px"}}>Create branded short links that build trust</h2>
+      <p className='lh-base fs-5'style={{color:"#ffff80"}} >🔶 Build strong brand credibility by customizing your links with our trusted link shortener.</p>
+      <p className='lh-base fs-5' style={{color:"#ffff80"}}>🔶 Activate brand recall effortlessly with custom links that your audience recognizes in seconds. </p>
+      <p className='lh-base fs-5' style={{color:"#ffff80"}}>🔶 Drive higher click-through rates and more engagement with a custom domain that’s unique to your brand.</p>
+    <p className='lh-base fs-5' style={{color:"#ffff80"}}> 🔶 Attract more clicks with polished short links that inspire confidence.</p>
+    <p className='lh-base fs-5' style={{color:"#ffff80"}}>🔶Observe click statistics and collect real-time data from every click.</p>
+    <p className='lh-base fs-5' style={{color:"#ffff80"}}>🔶Gather demographic insights with robust location and device data.</p>
       </div>
-      <div>
-        <img src={linkshortener} alt="linkshort"/>
+      <div className='position-relative' id="urlshortenerimage" style={{ minwidth:"300px" }}>
+        <img className="img-fluid  " src={linkshortener} style={{width:"100%",height:"auto"}} alt="linkshort"/>
       </div>
 </div>
    </div>
+   </div>
   )
 }
-{/* <div className="modal" tabindex="-1">
-<div className="modal-dialog">
-  <div className="modal-content">
-    <div className="modal-header">
-      <h5 className="modal-title">Modal title</h5>
-      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div className="modal-body">
-      <p>Modal body text goes here.</p>
-    </div>
-    <div className="modal-footer">
-      <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <button type="button" className="btn btn-primary">Save changes</button>
-    </div>
-  </div>
-</div>
-</div> */}

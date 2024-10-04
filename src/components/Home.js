@@ -15,12 +15,31 @@ export  function Home() {
         <button onClick={()=>navigate("/login")}>LOGIN</button>
         <button onClick={()=>navigate("/urlshortener")}>SHORTEN URL</button>
         <button>URL'S CREATED</button>
+        <br/>
+        <br/>
+        <div className='d-flex gap-5 mt-5'>
+    <div className="card " style={{width:"18rem",backgroundColor:"#ffc266"}}>
+  <div className="card-body">
+    <h5 className="card-title">No of url's created per Day</h5>
+    <h6 className="card-text mt-3 text-center">34</h6>
+   
+  </div>
+</div>
+<div className="card" style={{width:"18rem",height:"7rem", backgroundColor:" #ff99cc"}}>
+  <div className="card-body">
+    <h5 className="card-title">No of url's created per Day</h5>
+    <h6 className="card-text mt-3 text-center">34</h6>
+   
+  </div>
+</div>
+    </div>
       </div>
     </div>
     <div className="image-container">
       <img src={shortlink} alt="Your Image Description" />
     </div>
-    </div> 
+ </div> 
+ 
   )
 }
 
