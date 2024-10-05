@@ -1,12 +1,14 @@
 import React from 'react'
 import {littlegirl} from '../image';
+
+
 export  function Urldata() {
   const styles={
     backgroundColor:"#f2f2f2",
     width:"100vw",
   }
   return (
-    <div>
+    <div id='container' style={{height: "500px", width: "100%"}}>
       <div className='text-center' style={{styles}}>
       <img className="img-fluid " src={littlegirl} alt="littlegirl" />
 

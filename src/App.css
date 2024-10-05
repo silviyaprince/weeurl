@@ -24,7 +24,7 @@
  
   
   
-  
+ 
     
   
   
@@ -161,7 +161,14 @@ button:hover {
 
 #registercontainer{
   position: relative; /* or 'absolute' if needed */
-  top: 70px;
+  top:20px;
+}
+
+@media (min-width:500px){
+  #registercontainer{
+    position: relative; /* or 'absolute' if needed */
+    top:70px;
+  }
 }
 .urlcontainer{
   width: 100vw;
