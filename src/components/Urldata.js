@@ -1,5 +1,5 @@
 import React from 'react'
-import {littlegirl} from '../image';
+import {tablebg} from '../image';
 
 
 export  function Urldata() {
@@ -8,12 +8,31 @@ export  function Urldata() {
     width:"100vw",
   }
   return (
-    <div id='container' style={{height: "500px", width: "100%"}}>
+    <div
+      className=".img-fluid"
+      style={{
+        height: "100vh",
+        width: "100vw",
+        backgroundImage: `url(${tablebg})`, // Set background image
+        backgroundSize: "cover", // Make the image cover the whole viewport
+        backgroundPosition: "center", // Center the image
+        backgroundRepeat: "no-repeat",
+      }}>
+    <div className='container   ' id="tablecontainer" style={{height: "100vh", width: "100%"}}>
+      <div className='d-flex flex-column  justify-content-center h-100 mb-3'>
+      <div>
+        <h2>Confidently scale and showcase your impact</h2>
+        <p>🔶Monitor clicks in real-time and understand what’s working sooner and avoid making strategic decisions on the fly.</p>
+        <p>🔶Track and manage your broad range of short links and QR Codes across emails, SMS, landing pages, social posts, and prints.</p>
+        <p>🔶Download charts and graphs directly from the dashboard and save time building out stakeholder reports.</p>
+      </div>
       <div className='text-center' style={{styles}}>
-      <img className="img-fluid " src={littlegirl} alt="littlegirl" />
+        gggg
+      
 
       </div>
-      <table class="table table-striped">
+      <div>
+      <table className="table table-info table-striped " id="table">
       <thead>
     <tr>
       <th scope="col">#</th>
@@ -46,6 +65,9 @@ export  function Urldata() {
     </tr>
   </tbody>
 </table>
+</div>
+    </div>
+    </div>
     </div>
   )
 }
