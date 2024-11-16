@@ -20,8 +20,8 @@ export  function Urlshortener() {
       </form>
       <br/>
       <br/>
-     <div className='d-flex container flex-wrap gap-2 mb-5' id="urlshortenercontent" style={{backgroundColor:"#57868e",minHeight:"40vh",minWidth:"100vW"}}>
-      <div style={{ flex:'1 ' }} >
+     <div className='d-flex container  flex-wrap gap-2 mb-5' id="urlshortenercontent" style={{backgroundColor:"#57868e",minHeight:"40vh",minWidth:"100vW"}}>
+      <div    className='col-sm-12 col-xl-6' style={{ flex:'1 ' }} >
       <h4 className='' style={{color:"#ffffff",marginBottom:"30px"}}>TAILORED LINKS</h4>
       <h2 style={{ color:"#ffff4d" ,marginBottom:"40px"}}>Create branded short links that build trust</h2>
       <p className='lh-base fs-5'style={{color:"#ffff80"}} >🔶 Build strong brand credibility by customizing your links with our trusted link shortener.</p>
@@ -31,8 +31,8 @@ export  function Urlshortener() {
     <p className='lh-base fs-5' style={{color:"#ffff80"}}>🔶Observe click statistics and collect real-time data from every click.</p>
     <p className='lh-base fs-5' style={{color:"#ffff80"}}>🔶Gather demographic insights with robust location and device data.</p>
       </div>
-      <div className='position-relative' id="urlshortenerimage" style={{ minwidth:"300px" }}>
-        <img className="img-fluid  " src={linkshortener} style={{width:"100%",height:"auto"}} alt="linkshort"/>
+      <div className=' col-sm-12 col-xl-6 ' id="urlshortenerimage" >
+        <img className="img-fluid mt-5 " src={linkshortener} style={{width:"100%",height:"auto"}} alt="linkshort"/>
       </div>
 </div>
    </div>

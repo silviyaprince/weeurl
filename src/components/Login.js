@@ -3,10 +3,38 @@ import { Link, useNavigate } from "react-router-dom";
 import { weeurllogo } from "../image";
 import { wallpaper } from "../image";
 export function Login() {
-  const navigate = useNavigate();
+ 
   const colors = {
     borderColor: "#ff9999",
   };
+  const navigate=useNavigate()
+  const[email,setEmail]=useState("")
+  const[password,setPassword]=useState("")
+  const [err,setErr]=useState("")
+
+
+  const handleLogin=async()=>{
+      const payload={
+          email,
+          password
+      }
+
+      const res=await fetch(`${API}/user/login`,{
+          method:"POST",
+          body:JSON.stringify(payload),
+          headers:{
+              "Content-type":"application/json"
+          }
+      })
+      const data=await res.json()
+      if(data.token){
+          setErr("")
+          localStorage.setItem("token",data.token)
+          navigate("/")
+      }else{
+          setErr(data.error)
+      }
+  }
   return (
     <div
       className=".img-fluid"

@@ -192,3 +192,8 @@ button:hover {
  flex:1;
   }
 }
+/* @media (max-width:1400px){
+#urlshortenercontent{
+flex-direction: column;
+}
+} */
