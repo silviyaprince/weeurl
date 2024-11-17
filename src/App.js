@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import { Forgotpasswordpage } from './components/Forgotpasswordpage';
+import { Resetpassword } from './components/Resetpassword';
 import './App.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,6 +20,8 @@ function App() {
       <Route path="/urlshortener" element={<Urlshortener/>}/>
       <Route path="/urldata" element={<Urldata/>}/>
       <Route path="/signupregistration" element={<Signupregistration/>}/>
+      <Route path="/user/resetpassword/:token" element={<Resetpassword/>}/>
+      <Route path="/forgotpassword" element={<Forgotpasswordpage/>}/>
 
       <Route path="*" element={<Pagenotfound/>}/>
     </Routes>

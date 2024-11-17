@@ -1,6 +1,44 @@
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { signupbg } from "../image";
+import { API } from "./global";
 export function Signupregistration() {
+  const navigate=useNavigate()
+  const[firstname,setFirstname]=useState("")
+  const[lastname,setLastname]=useState("")
+
+  const[email,setEmail]=useState("")
+  const[password,setPassword]=useState("")
+  const [err,setErr]=useState("")
+
+
+  const handleSignup=async(e)=>{
+    e.preventDefault();
+      const payload={
+          firstname,
+          lastname,
+          email,
+          password
+      }
+      console.log("Payload being sent:", payload);
+      const res=await fetch(`${API}/user/signupregistration`,{
+          method:"POST",
+          body:JSON.stringify(payload),
+          headers:{
+              "Content-type":"application/json"
+          }
+      })
+      const data=await res.json()
+      console.log("Response data:", data);
+      if(data.token){
+          setErr("")
+          localStorage.setItem("token",data.token)
+          navigate("/login")
+      }else{
+          setErr(data.error)
+      }
+  }
   return (
     <div
       className=".img-fluid"
@@ -22,20 +60,20 @@ export function Signupregistration() {
             <label for="Firstname" className="form-label fs-6 fw-bold">
               First name
             </label>
-            <input type="text" className="form-control" id="inputPassword4" />
+            <input type="text" className="form-control" id="inputPassword4" value={firstname} onChange={(e)=>setFirstname(e.target.value)} />
           </div>
           <div className="col-md-6">
             <label for="Lastname" className="form-label fs-6 fw-bold">
               Last name
             </label>
-            <input type="text" className="form-control" id="Lastname" />
+            <input type="text" className="form-control" id="Lastname" value={lastname} onChange={(e)=>setLastname(e.target.value)} />
           </div>
 
           <div className="col-md-6">
             <label for="inputEmail4" className="form-label fs-6 fw-bold">
               Email
             </label>
-            <input type="email" className="form-control" id="inputEmail4" />
+            <input type="email" className="form-control" id="inputEmail4" value={email} onChange={(e)=>setEmail(e.target.value)}/>
           </div>
           <div className="col-md-6">
             <label for="inputPassword4" className="form-label fs-6 fw-bold">
@@ -45,54 +83,13 @@ export function Signupregistration() {
               type="password"
               className="form-control"
               id="inputPassword4"
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
             />
-          </div>
-          <div className="col-12">
-            <label for="inputAddress" className="form-label fs-6 fw-bold">
-              Address
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="inputAddress"
-              placeholder="1234 Main St"
-            />
-          </div>
-          <div className="col-12">
-            <label for="inputAddress2" className="form-label fs-6 fw-bold">
-              Address 2
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="inputAddress2"
-              placeholder="Apartment, studio, or floor"
-            />
-          </div>
-          <div className="col-md-6">
-            <label for="inputCity" className="form-label fs-6 fw-bold">
-              City
-            </label>
-            <input type="text" className="form-control" id="inputCity" />
-          </div>
-          <div className="col-md-4">
-            <label for="inputState" className="form-label fs-6 fw-bold">
-              State
-            </label>
-            <select id="inputState" className="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div className="col-md-2">
-            <label for="inputZip" className="form-label fs-6 fw-bold">
-              Zip
-            </label>
-            <input type="text" className="form-control" id="inputZip" />
           </div>
 
           <div className="col-12 d-flex justify-content-center">
-            <button type="submit" className=" btn btn-warning">
+            <button type="submit" className=" btn btn-warning" onClick={handleSignup}>
               REGISTER
             </button>
           </div>

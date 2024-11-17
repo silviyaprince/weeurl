@@ -1,7 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { weeurllogo } from "../image";
 import { wallpaper } from "../image";
+import {API} from "./global"
 export function Login() {
  
   const colors = {
@@ -18,7 +20,7 @@ export function Login() {
           email,
           password
       }
-
+try{
       const res=await fetch(`${API}/user/login`,{
           method:"POST",
           body:JSON.stringify(payload),
@@ -34,7 +36,12 @@ export function Login() {
       }else{
           setErr(data.error)
       }
+    }catch(error){
+      console.error("Error during login:", error);
+      setErr("Invalid credentials. Please try again.");
   }
+    }
+  
   return (
     <div
       className=".img-fluid"
@@ -71,6 +78,9 @@ export function Login() {
                   className="form-control /"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
+
                 />
                 <label htmlFor="floatingInput">Email address</label>
               </div>
@@ -80,18 +90,20 @@ export function Login() {
                   className="form-control"
                   id="floatingPassword"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
                 />
                 <label htmlFor="floatingPassword">Password</label>
               </div>
-              <Link
-                href="/forgot-password"
+              <div
+                onClick={()=>navigate("/forgotpassword")}
                 className="forgot-password-link float-end">
                 Forgot password?
-              </Link>
+              </div>
               <div className="text-center  mt-5   ">
-                <button type="button" className="btn btn-primary me-2">
-                  SUBMIT
-                </button>
+                <input type="submit" className="" value="submit" onClick={handleLogin}/>
+                {err && <div style={{ color: "red", marginTop: "10px" }}>{err}</div>}
+                
                 <p className="mt-4 fs-5">
                   Not a member?
                   <h6

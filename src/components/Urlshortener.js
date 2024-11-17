@@ -20,6 +20,16 @@ export  function Urlshortener() {
       </form>
       <br/>
       <br/>
+      <div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Your Short URL</h5>
+    <p class="card-text">{shortUrl}</p>
+    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+  </div>
+</div>
      <div className='d-flex container  flex-wrap gap-2 mb-5' id="urlshortenercontent" style={{backgroundColor:"#57868e",minHeight:"40vh",minWidth:"100vW"}}>
       <div    className='col-sm-12 col-xl-6' style={{ flex:'1 ' }} >
       <h4 className='' style={{color:"#ffffff",marginBottom:"30px"}}>TAILORED LINKS</h4>
