@@ -1,4 +1,5 @@
 
+import  { useEffect, useState } from "react";
 
 import { useNavigate } from 'react-router-dom'
 import { shortlink } from '../image'
@@ -6,7 +7,38 @@ import { w } from '../image'
 import React from 'react'
 
 export  function Home() {
+  const [dailyCount, setDailyCount] = useState([]);
+  const [monthlyCount, setMonthlyCount] = useState([]);
+  
+  useEffect(() => {
+      // Fetch the data from the backend
+      const fetchUrlsCount = async () => {
+          try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+              const response = await fetch('http://localhost:8030/urlcount/count');
+              signal: controller.signal()
+              const data = await response.json();
+              
+              setDailyCount(data.dailyCount);
+              console.log(data.dailyCount)
+              setMonthlyCount(data.monthlyCount);
+              console.log(dailyCount)
+              clearTimeout(timeoutId); 
+          } catch (error) {
+              console.error('Error fetching URL counts:', error);
+          }
+      };
+
+      fetchUrlsCount();
+  }, []);
   const navigate=useNavigate()
+  const handleLogout=()=>{
+    localStorage.removeItem("token")
+    navigate("/login")
+  }
+
+ 
   return (
     <div
       className=".img-fluid"
@@ -27,6 +59,8 @@ export  function Home() {
         <button id="button" onClick={()=>navigate("/login")}>LOGIN</button>
         <button id="button" onClick={()=>navigate("/urlshortener")}>SHORTEN URL</button>
         <button id="button" onClick={()=>navigate("/urldata")}>URL'S CREATED</button>
+        <button id="button" onClick={handleLogout}>LOGOUT</button>
+
         </div>
         <br/>
         <br/>
@@ -34,14 +68,14 @@ export  function Home() {
     <div className="card " style={{width:"18rem",backgroundColor:"#ffc266"}}>
   <div className="card-body">
     <h5 className="card-title">No of url's created per Day</h5>
-    <h6 className="card-text mt-3 text-center">34</h6>
+    <h6 className="card-text mt-3 text-center">{dailyCount[0]?.count || "Loading..."} </h6>
    
   </div>
 </div>
 <div className="card" style={{width:"18rem",height:"7rem", backgroundColor:" #ff99cc"}}>
   <div className="card-body">
-    <h5 className="card-title">No of url's created per Day</h5>
-    <h6 className="card-text mt-3 text-center">34</h6>
+    <h5 className="card-title">No of url's created per Month</h5>
+    <h6 className="card-text mt-3 text-center">{monthlyCount}</h6>
    
   </div>
 </div>

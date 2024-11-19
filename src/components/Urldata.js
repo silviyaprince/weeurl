@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { tablebg } from "../image";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Urldata() {
   const styles = {
     backgroundColor: "#f2f2f2",
     width: "100vw",
   };
+const navigate=useNavigate()
+const [userdata,setUserData]=useState([])
+  const [error,setError]=useState("")
+
+  useEffect(()=>{
+    if(!localStorage.getItem("token")){
+      navigate("/login",{replace:true})
+    }
+    let token=localStorage.getItem("token")
+    const fetchUserData=async()=>{
+      const res=await fetch("http://localhost:8030/url/user/all",{
+      method:"GET",
+      headers:{
+        "x-auth-token":token,
+      },
+        
+    })
+   const data=await res.json()
+   console.log(data)
+   if(!data.data){
+    setError(data.error)
+   }else{
+   setUserData(data.data)
+   }
+  }
+   fetchUserData()
+  },[])
+
+
   return (
     <div
       className=".img-fluid"
@@ -46,32 +76,27 @@ export function Urldata() {
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Original url</th>
-                  <th scope="col">Shortened url</th>
+                  <th scope="col">Sholrtened url</th>
                   <th scope="col">Date of Creation</th>
                   <th scope="col">Number of Clicks</th>
-                  <th scope="col">Handle</th>
+                 
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              {userdata.map((data,index)=>(
+                     <tr>
+                     <th scope="row">{index+1}</th>
+                    
+                    
+                     <td>{data.longUrl}</td>
+                     <td>http://localhost:8030/url/{data.shortUrl}</td>
+                     <td>{data.date}</td>
+                     <td>{data.clickCount}</td>
+                   </tr>
+                  ))}
+               
+                
+               
               </tbody>
             </table>
           </div>
