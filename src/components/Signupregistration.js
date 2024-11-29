@@ -3,22 +3,39 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signupbg } from "../image";
 import { API } from "./global";
+import { useFormik } from "formik";
+
+import * as yup from 'yup';
+
+
+
+const formValidationSchema = yup.object({
+  email: yup
+    .string()
+    .max(20, "needed maximum of 12 characters")
+    .required()
+    .matches(/^[A-Z0-9.%+-]+@[A-Z0-9.+]+\.[A-Z].{2,}$/i,"enter valid email"),
+  
+});
+
+
 export function Signupregistration() {
   const navigate=useNavigate()
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const[firstname,setFirstname]=useState("")
   const[lastname,setLastname]=useState("")
 
-  const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")
   const [err,setErr]=useState("")
 
 
-  const handleSignup=async(e)=>{
-    e.preventDefault();
+  const handleSignup=async(values)=>{
+    setIsLoading(true);
       const payload={
           firstname,
           lastname,
-          email,
+          email:values.email,
           password
       }
       console.log("Payload being sent:", payload);
@@ -43,8 +60,20 @@ export function Signupregistration() {
     } catch(error) {
       console.error("Error during signup:", error);
       setErr("An unexpected error occurred. Please try again.");
+    }finally {
+      setIsLoading(false); // Stop loading
     }
 }
+
+const formik = useFormik({
+  initialValues: {
+    email: "",
+   
+  },
+  validationSchema: formValidationSchema,
+  onSubmit: handleSignup
+  
+});
   return (
     <div
       className=".img-fluid"
@@ -60,7 +89,7 @@ export function Signupregistration() {
         <h4 className="text-center fs-3 fw-bold mb-5" id="signuph4">
           REGISTER
         </h4>
-        <form className="row g-3">
+        <form onSubmit={formik.handleSubmit} className="row g-3">
           <div className="col-md-6">
             <label for="Firstname" className="form-label fs-6 fw-bold">
               First name
@@ -75,11 +104,20 @@ export function Signupregistration() {
           </div>
 
           <div className="col-md-6">
-            <label for="inputEmail4" className="form-label fs-6 fw-bold">
+            <label for="email" className="form-label fs-6 fw-bold">
               Email
             </label>
-            <input type="email" className="form-control" id="inputEmail4" value={email} onChange={(e)=>setEmail(e.target.value)}  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
-          </div>
+            <input 
+    type="email" 
+    className="form-control" 
+    id="email" 
+    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    required
+  />     
+               {formik.touched.email && formik.errors.email? formik.errors.email: ""}
+               </div>
           <div className="col-md-6">
             <label for="inputPassword4" className="form-label fs-6 fw-bold">
               Password
@@ -94,8 +132,8 @@ export function Signupregistration() {
           </div>
 
           <div className="col-12 d-flex justify-content-center">
-            <button type="submit" className=" btn btn-warning" onClick={handleSignup}>
-              REGISTER
+            <button type="submit" className=" btn btn-warning" >
+            {isLoading ? "Processing..." : "REGISTER"}
             </button>
           </div>
         </form>
