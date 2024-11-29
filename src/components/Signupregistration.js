@@ -78,7 +78,7 @@ export function Signupregistration() {
             <label for="inputEmail4" className="form-label fs-6 fw-bold">
               Email
             </label>
-            <input type="email" className="form-control" id="inputEmail4" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+            <input type="email" className="form-control" id="inputEmail4" value={email} onChange={(e)=>setEmail(e.target.value)}  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
           </div>
           <div className="col-md-6">
             <label for="inputPassword4" className="form-label fs-6 fw-bold">
