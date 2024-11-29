@@ -3,8 +3,8 @@ import { API } from "./global";
 import { useNavigate } from 'react-router-dom';
 
 export  function Forgotpasswordpage() {
-  const [email, setEmail] = useState(""); // State to store the email input
-  const [showAlert, setShowAlert] = useState(""); // State to handle alert messages
+  const [email, setEmail] = useState(""); 
+  const [showAlert, setShowAlert] = useState(""); 
 const navigate=useNavigate();
   const handleResetRequest = async () => {
     
@@ -25,10 +25,10 @@ const navigate=useNavigate();
       const data = await response.json();
 
       if (response.ok) {
-        // Success - show message
+       
         setShowAlert("Password reset email has been sent.");
       } else {
-        // Error - show message
+       
         setShowAlert(data.error || "An error occurred. Please try again.");
       }
     } catch (error) {

@@ -65,7 +65,7 @@ button:hover {
 }
 
 .image-container img {
-  width: 600px; /* Adjust the width of the image */
+  width: 600px; 
   height: auto;
   object-fit: cover;
   border-radius: 40%;
@@ -74,9 +74,9 @@ button:hover {
 
 @media (max-width: 1024px) {
   .home-container {
-    flex-direction: column; /* Stack content and image vertically on tablets */
+    flex-direction: column;
     justify-content: center;
-    text-align: center; /* Center content for smaller screens */
+    text-align: center; 
     padding: 20px;
   }
   #headingcontent {
@@ -90,20 +90,20 @@ button:hover {
     
   }
   .content {
-    max-width: 100%; /* Allow content to use full width */
+    max-width: 100%; 
     padding: 20px;
   }
   
 
   .image-container img {
-    width: 300px; /* Reduce image size on tablet screens */
+    width: 300px; 
     margin-top: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .home-container {
-    height: auto; /* Allow container to expand on smaller screens */
+    height: auto; 
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -120,11 +120,11 @@ button:hover {
   }
 
   p {
-    font-size: 1rem; /* Adjust paragraph font size */
+    font-size: 1rem; 
   }
 
   .image-container img {
-    width: 300px; /* Smaller image for mobile */
+    width: 300px; 
   }
 }
 
@@ -141,20 +141,20 @@ button:hover {
   }
 
   p {
-    font-size: 0.9rem; /* Smaller font size for paragraph */
+    font-size: 0.9rem; 
   }
 
   .image-container img {
-    width: 200px; /* Smaller image for very small screens */
+    width: 200px; 
   }
 
   .buttons-container {
-    flex-direction: column; /* Stack buttons vertically on mobile */
+    flex-direction: column; 
   }
 
   button {
-    width: 80%; /* Make buttons take full width on mobile */
-    margin: 10px 0; /* Space between buttons */
+    width: 80%;
+    margin: 10px 0; 
   }
 }
 
@@ -164,7 +164,7 @@ button:hover {
 }
 
 #registercontainer{
-  position: relative; /* or 'absolute' if needed */
+  position: relative; 
   top:20px;
 }
 
@@ -192,8 +192,18 @@ button:hover {
  flex:1;
   }
 }
-/* @media (max-width:1400px){
-#urlshortenercontent{
-flex-direction: column;
+
+.h1class{
+  margin-bottom: 50px;
+  color: rgb(232, 239, 243);
+  text-align: center;
+
 }
-} */
+
+.pclass{
+  text-align: center;
+}
+
+.divclass{
+  margin-bottom: 100px;
+}

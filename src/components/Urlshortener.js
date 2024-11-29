@@ -12,7 +12,7 @@ export  function Urlshortener() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(''); // Reset error before submitting
+    setError(''); 
   
     console.log('Submitting:', { longUrl });
   
@@ -25,22 +25,22 @@ export  function Urlshortener() {
           'Content-Type': 'application/json',
           "x-auth-token":token,
         },
-        body: JSON.stringify({ longUrl }), // Check this matches the backend expectations
+        body: JSON.stringify({ longUrl }),
       });
 
       console.log('Response:', response);
   
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Error response:', errorData); // Log the error message
+        console.error('Error response:', errorData); 
         throw new Error('Failed to create short URL');
       }
   
       const data = await response.json();
-      console.log('Success response:', data); // Log success data
-      setShortUrl(data.data.shortUrl); // Update shortUrl with the response
+      console.log('Success response:', data); 
+      setShortUrl(data.data.shortUrl); 
     } catch (err) {
-      console.error('Error creating short URL:', err); // Log the error object
+      console.error('Error creating short URL:', err); 
       setError('Failed to create short URL. Please try again.');
     }
   };
@@ -64,8 +64,8 @@ export  function Urlshortener() {
       <br/>
       <br/>
       {shortUrl && (
-          <div className="card mt-4">
-            <div className="card-header">Your Short URL</div>
+          <div className=" container card mt-4">
+            <div className="card-header text-black fs-5" style={{color:""}}>HERE IS YOUR SHORT URL</div>
             <div className="card-body">
               <h5 className="card-title">Shortened Link</h5>
               <p className="card-text">

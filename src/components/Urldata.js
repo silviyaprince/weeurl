@@ -38,47 +38,51 @@ const [userdata,setUserData]=useState([])
 
   return (
     <div
-      className=".img-fluid"
+      className
       style={{
         height: "100vh",
         width: "100vw",
-        backgroundImage: `url(${tablebg})`, // Set background image
-        backgroundSize: "cover", // Make the image cover the whole viewport
-        backgroundPosition: "center", // Center the image
+        background: 'linear-gradient(to right, #F6D55C, #ED553B)' , 
+        backgroundSize: "cover", 
+        backgroundPosition: "center", 
         backgroundRepeat: "no-repeat",
       }}>
       <div
-        className="container   "
+        className="   "
         id="tablecontainer"
         style={{ height: "100vh", width: "100%" }}>
         <div className="d-flex flex-column  justify-content-center h-100 mb-3">
-          <div>
-            <h2>Confidently scale and showcase your impact</h2>
-            <p>
+          <div className="divclass">
+            <h1 className="h1class">Confidently scale and showcase your impact</h1>
+            <strong>
+            <p className="pclass"><h4>
               🔶Monitor clicks in real-time and understand what’s working sooner
               and avoid making strategic decisions on the fly.
-            </p>
-            <p>
+              </h4> </p>
+            <p className="pclass"><h4>
               🔶Track and manage your broad range of short links and QR Codes
               across emails, SMS, landing pages, social posts, and prints.
-            </p>
-            <p>
+              </h4> </p>
+            <p className="pclass"><h4>
               🔶Download charts and graphs directly from the dashboard and save
               time building out stakeholder reports.
-            </p>
+              </h4>   </p>
+            </strong>
           </div>
-          <div className="text-center" style={{ styles }}>
-            gggg
+          <div className="text-center fs-2" style={{ styles }}>
+            <strong>
+            Your Url's
+            </strong>
           </div>
-          <div>
-            <table className="table table-info table-striped " id="table">
+          <div className="table-responsive" style={{ width: "95%", margin: "0 auto" }}>
+            <table className="table table-info table-striped " id="table" style={{ width: "100%" }}>
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Original url</th>
-                  <th scope="col">Sholrtened url</th>
-                  <th scope="col">Date of Creation</th>
-                  <th scope="col">Number of Clicks</th>
+                  <th scope="col">NO.</th>
+                  <th scope="col">ORIGINAL URL</th>
+                  <th scope="col">SHORTENED URL</th>
+                  <th scope="col" style={{width: "200px"}}>DATE OF CREATION</th>
+                  <th scope="col" style={{width: "200px"}}>NUMBER OF CLICKS</th>
                  
                 </tr>
               </thead>

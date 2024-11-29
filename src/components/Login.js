@@ -29,17 +29,19 @@ try{
           }
       })
       const data=await res.json()
-      if(data.token){
-          setErr("")
-          localStorage.setItem("token",data.token)
-          navigate("/")
-      }else{
-          setErr(data.error)
+      if (res.status === 403) { // Account not activated
+        setErr("Please activate your account to login.");
+      } else if (data.token) { // Successful login
+        setErr("");
+        localStorage.setItem("token", data.token);
+        navigate("/");
+      } else { // Other errors (like invalid credentials)
+        setErr(data.error);
       }
-    }catch(error){
+    } catch (error) {
       console.error("Error during login:", error);
       setErr("Invalid credentials. Please try again.");
-  }
+    }
     }
   
   return (
@@ -48,9 +50,9 @@ try{
       style={{
         height: "100vh",
         width: "100vw",
-        backgroundImage: `url(${wallpaper})`, // Set background image
-        backgroundSize: "cover", // Make the image cover the whole viewport
-        backgroundPosition: "center", // Center the image
+        backgroundImage: `url(${wallpaper})`, 
+        backgroundSize: "cover", 
+        backgroundPosition: "center", 
         backgroundRepeat: "no-repeat",
       }}>
       <div

@@ -22,6 +22,7 @@ export function Signupregistration() {
           password
       }
       console.log("Payload being sent:", payload);
+      try{
       const res=await fetch(`${API}/user/signupregistration`,{
           method:"POST",
           body:JSON.stringify(payload),
@@ -31,24 +32,28 @@ export function Signupregistration() {
       })
       const data=await res.json()
       console.log("Response data:", data);
-      if(data.token){
-          setErr("")
-          localStorage.setItem("token",data.token)
-          navigate("/login")
-      }else{
-          setErr(data.error)
+      if (res.ok) {
+        // Show success message to user
+        alert("Signup successful! Please check your email to activate your account.");
+        setErr(""); 
+      } else {
+        // Display error message from backend
+        setErr(data.error || "An error occurred during signup.");
       }
-  }
+    } catch(error) {
+      console.error("Error during signup:", error);
+      setErr("An unexpected error occurred. Please try again.");
+    }
+}
   return (
     <div
       className=".img-fluid"
       style={{
         minHeight: "100vh",
         width: "100vw",
-        backgroundImage: `url(${signupbg})`, // Set background image
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed", // Make the image cover the whole viewport
-        backgroundPosition: "center", // Center the image
+        backgroundImage: `url(${signupbg})`, 
+        backgroundAttachment: "fixed", 
+        backgroundPosition: "center", 
         backgroundRepeat: "no-repeat",
       }}>
       <div className="container  text-white text-bold " id="registercontainer">
@@ -94,6 +99,8 @@ export function Signupregistration() {
             </button>
           </div>
         </form>
+        {err && <div style={{ color: "black", marginTop: "10px",fontSize:"40px" ,textAlign:"center"}}>{err}</div>}
+
       </div>
     </div>
   );

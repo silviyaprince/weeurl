@@ -7,7 +7,7 @@ export function Resetpassword() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [tokenValid, setTokenValid] = useState(false); // Track if token is valid
+  const [tokenValid, setTokenValid] = useState(false); 
 const navigate=useNavigate()
   useEffect(() => {
     
@@ -31,14 +31,13 @@ const navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if passwords match
+    
     if (newPassword !== confirmPassword) {
       setMessage("Passwords do not match.");
       return;
     }
 
     try {
-      // Send request to the backend to update the password
       const response = await fetch(`${API}/user/resetpassword/update`, {
         method: "POST",
         headers: {
@@ -51,7 +50,6 @@ const navigate=useNavigate()
 
       if (response.ok) {
         setMessage(result.message);
-        // Redirect to login 
         navigate("/");
       } else {
         setMessage(result.error);
@@ -71,7 +69,7 @@ const navigate=useNavigate()
 
         <div className="card-body d-grid gap-2">
         {message && <p>{message}</p>}
-          <form onSubmit={handleSubmit}> {/* Use form for submission */}
+          <form onSubmit={handleSubmit}> 
             <input
               className="form-control me-2"
               type="password"
