@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { tablebg } from "../image";
 import { Link, useNavigate } from "react-router-dom";
+import {API} from "./global"
 
 export function Urldata() {
   const styles = {
@@ -17,7 +18,7 @@ const [userdata,setUserData]=useState([])
     }
     let token=localStorage.getItem("token")
     const fetchUserData=async()=>{
-      const res=await fetch("http://localhost:8030/url/user/all",{
+      const res=await fetch(`${API}/url/user/all`,{
       method:"GET",
       headers:{
         "x-auth-token":token,
@@ -93,7 +94,7 @@ const [userdata,setUserData]=useState([])
                     
                     
                      <td>{data.longUrl}</td>
-                     <td>http://localhost:8030/url/{data.shortUrl}</td>
+                     <td>{`${API}/url/${data.shortUrl}`}</td>
                      <td>{data.date}</td>
                      <td>{data.clickCount}</td>
                    </tr>
