@@ -1,1 +1,1 @@
-export const API="http://localhost:8030"
+export const API="https://weeurl-backend.onrender.com"
