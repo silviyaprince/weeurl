@@ -23,7 +23,7 @@ export  function Home() {
               
               const data = await response.json();
               console.log("API Response:", data);
-              setDailyAverage(data.dailyAverage);
+              setDailyAverage(data.roundedAverage);
              
               setMonthlyAverage(data.monthlyAverage);
               
@@ -71,7 +71,7 @@ export  function Home() {
   <div className="card-body">
     <h5 className="card-title">No of url's created per Day</h5>
     
-          <h6  className="card-text mt-3 fs-3 text-center">{dailyAverage}</h6>
+          <h6  className="card-text mt-3 fs-3 text-center">{roundedAverage}</h6>
 
      
    
