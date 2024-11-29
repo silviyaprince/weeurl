@@ -1,5 +1,6 @@
 
 import  { useEffect, useState } from "react";
+import {API} from "./global"
 
 import { useNavigate } from 'react-router-dom'
 import { shortlink } from '../image'
@@ -18,7 +19,7 @@ export  function Home() {
       const fetchUrlsCount = async () => {
           try {
            
-              const response = await fetch('http://localhost:8030/urlcount/count');
+              const response = await fetch(`${API}/urlcount/count`);
               
               const data = await response.json();
               console.log("API Response:", data);
